@@ -1,0 +1,16 @@
+<h3>News Uploaded by Our Dear Partners</h3>
+<div *ngFor="let new of globalNews">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h4 class="card-title"> <B>Article : {{ new.title }}</B></h4>
+          <h6 class="card-subtitle mb-2 text-muted">Author : {{ new.displayName }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Country : {{ new.country }}</h6>
+          <div></div>
+          <div></div>  
+          <div></div>
+          <p class="card-text">Description : {{new.description}}</p>
+         <div>  <div> <a href={{new.body_src}} class="card-link">Link Report</a>
+         </div>  <div>  <a href="mailto:{{new.email}}" class="card-link">Contact Author</a>
+         </div> </div></div>
+      </div>     
+</div>

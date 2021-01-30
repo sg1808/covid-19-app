@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-sm-4"><h3> Hi {{ user.displayName }} You Are A Motivated Person</h3></div>
+    <div class="col-sm-4 text right">
+        <button class="btn btn-danger" (click)="authService.signOut()">Sign Out</button>
+    </div>
+</div>
+
+<h4>Add News</h4>
+<form (ngSubmit)="addNews()">
+<div class ="row">
+    <div class="col-ml-6">
+        <label for="countryLabel"><h5>Country</h5></label>
+        <input type="search" id="countryLabel"
+        name="countryLabel" class="form-control"
+        [(ngModel)]="country"
+        required
+        />
+    </div>
+    <div class="col-ml-6">
+        <label for="title"><h5>Title</h5></label>
+        <input type="search" id="title"
+        name="title" class="form-control"
+        [(ngModel)]="title"
+        required
+        />
+    </div>
+    <div class="col-ml-6">
+        <label for="description"><h5>Description</h5></label>
+        <input type="text" id="description"
+        name="description" class="form-control"
+        [(ngModel)]="description"
+        required
+        />
+    </div>
+    <div class="col-ml-6">
+        <label for="bodySource"><h5>Body Source</h5></label>
+        <input type="url" id="bodySource"
+        name="bodySource" class="form-control"
+        [(ngModel)]="body_src"
+        required
+        />
+    </div>
+    <div class="col-ml-6">
+        <label for="imageSource"><h5>Image Source</h5></label>
+        <input type="url" id="imageSource"
+        name="imageSource" class="form-control"
+        [(ngModel)]="image_src"
+        required
+        />
+    </div>
+    <button class ="btn btn-primary"> Add </button>
+</div>
+</form>

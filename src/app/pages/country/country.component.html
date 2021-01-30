@@ -1,0 +1,175 @@
+<section *ngIf="stats">
+	<h2 class="mt-3 mb-5" tabindex="0">
+		<img *ngIf="stats.countryInfo" alt="{{ stats.country }} country logo image" src="{{ stats.countryInfo.flag }}" class="align-baseline" />
+		{{ stats.country }}
+	</h2>
+	<div class="row">
+		<div class="col s12 m6">
+			<h3 tabindex="0">COVID-19 stats:</h3>
+		</div>
+		<div class="col s12 m6 right-align updated-at">
+			<small><em>Last updated: {{ formatterService.date(stats.updated) }}</em></small>
+		</div>
+	</div>
+
+	<div class="centerer">
+		<div class="row no-space-bottom">
+			<div class="col s4 xl150 mb-3">
+				<div class="card clickable" routerLink="/cases">
+					<div class="card-image ">
+						<img src="https://firebasestorage.googleapis.com/v0/b/covidapp-c8c73.appspot.com/o/blue_corona.jpg?alt=media&token=a49fedc1-4678-493b-9cfc-57805e34d510" alt="material backgroung image">
+
+					<div class="card-content">
+						<div>
+						<span class="center-align today">
+							
+								<b>Total Cases: {{ formatterService.number(stats.cases) }}</b>
+						</span></div>
+						<div>
+						<span class="center-align today">
+
+								<b>Today: {{ formatterService.number(stats.todayCases) }}</b>
+						</span></div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="col s4  xl150 mb-3">
+				<div class="card clickable" [routerLink]="['/cases', 'recovered']">
+					<div class="card-image">
+						<img src="https://firebasestorage.googleapis.com/v0/b/covidapp-c8c73.appspot.com/o/yellow_corona.jpg?alt=media&token=c7039ab6-d3ef-4ce9-8609-164132b5aa39" alt="material backgroung image">
+						<div class="card-title">
+						</div>
+						
+					</div>
+					<div class="card-content">
+						<div>
+							<span class="center-align today">
+	
+									<b>Total Recovered: {{ formatterService.number(stats.recovered) }}</b>
+							</span></div>
+							<div><span class="center-align today">
+	
+								<b>Today Recovered: {{ formatterService.number(stats.todayRecovered) }}</b>
+						</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="col s4 xl150 mb-3">
+				<div class="card clickable" [routerLink]="['/cases', 'deaths']">
+					<div class="card-image">
+						<img src="https://firebasestorage.googleapis.com/v0/b/covidapp-c8c73.appspot.com/o/red_corona.jpg?alt=media&token=e2fe4e08-45b1-40b7-b316-c4516f67c8c6" alt="material backgroung image">
+						<div class="card-title">
+						</div>
+						
+					</div>
+					<div class="card-content">
+						<div>
+							<span class="center-align today">
+	
+									<b>Total Deaths: {{ formatterService.number(stats.deaths) }}</b>
+							</span></div>
+							<div><span class="center-align today">
+	
+								<b>Today Deaths: {{ formatterService.number(stats.todayDeaths) }}</b>
+						</span></div>
+					</div>
+				</div>
+			</div>
+	    </div>
+    </div>
+	<div class="card"> 
+		<div class="card-content">
+			<h3 tabindex="0">Summary </h3>
+	<div>
+	<html>
+		<head>
+		  <title>Cours Complet Bootstrap 4</title>
+		  <meta charset='utf-8'>
+		  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		</head>
+		<body>
+		  <div class="container">
+			<table class="table">
+			  <tbody>
+				<tr bgcolor="#33FFDF">
+				  <td>Total Cases</td>
+				  <td>{{ formatterService.number(stats.cases) }}</td>
+				</tr>
+				<tr bgcolor="#33FFDF">
+				  <td>New Cases</td>
+				  <td>{{ formatterService.number(stats.todayCases) }}</td>
+				</tr>
+				<tr bgcolor="#33FFDF">
+				  <td>Active Cases</td>
+				  <td>{{ formatterService.number(stats.cases - stats.recovered)  }}</td>
+				</tr>
+				<tr bgcolor="#FFD333">
+				  <td>Total Recovered</td>
+				  <td>{{ formatterService.number(stats.recovered) }}</td>
+				</tr>
+				<tr bgcolor="#FFD333">
+				  <td>New Recovered</td>
+				  <td>{{ formatterService.number(stats.todayRecovered) }}</td>
+				</tr>
+				<tr bgcolor="#FFD333">
+				  <td>Recovery Rate</td>
+				  <td>{{ formatterService.porpotion(stats.todayRecovered/stats.cases)}}</td>
+				</tr>
+				<tr bgcolor="FF4533">
+				  <td>Total Deaths</td>
+				  <td>{{ formatterService.number(stats.deaths) }}</td>
+				</tr>
+				<tr bgcolor="FF4533">
+				  <td>New Deaths</td>
+				  <td>{{ formatterService.number(stats.todayDeaths) }}</td>
+				</tr>
+				<tr bgcolor="FF4533">
+				  <td>New Deaths</td>
+				  <td>{{formatterService.porpotion(stats.deaths/stats.cases)}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		</body>
+	</html>
+	</div>
+</div>
+</div>
+	<div class="card"> 
+		<div class="card-content">
+			<h3 tabindex="0">Distribution </h3>
+			<app-pie [timeline]="timeline1"></app-pie>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="card-content">
+			<h3 tabindex="0">Historical Data </h3>
+			<area-chart [timeline]="timeline"></area-chart>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="card-content">
+			<h3 tabindex="0">Daily Report </h3>
+			<stacked-chart [timeline]="timeline_week"></stacked-chart>
+		</div>
+	</div>
+
+
+
+	<div class="btn-group right-align">
+		<a class="waves-effect waves-light btn white blue-text" routerLink="/">
+			<i class="material-icons left hide-on-med-and-down">home</i>Home
+		</a>
+		<a class="waves-effect waves-light btn blue" routerLink="/cases">
+			<i class="material-icons left hide-on-med-and-down">public</i>Go back to list page
+		</a>
+	</div>
+
+	<div>
+		<app-news-country [country]="countryName"></app-news-country>
+	</div>
+
+</section>

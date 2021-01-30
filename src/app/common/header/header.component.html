@@ -1,0 +1,36 @@
+<div class="navbar-fixed">
+	<nav class="white">
+		<div class="container nav-wrapper">
+			<a routerLink="/" class="brand-logo">
+				<img src="https://firebasestorage.googleapis.com/v0/b/covidapp-c8c73.appspot.com/o/covid_logo.jpg?alt=media&token=1997c501-5fec-4d6b-b5b8-3959e5a3c8c6" width="30" height="30" alt="CoronaVirous Logo Image">
+				<span class="text-black">{{ logoText }}</span>
+			</a>
+			<ul class="right">
+				<li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+					<a routerLink="/">
+						<i class="large material-icons">home</i> 
+						<span class="hide-on-med-and-down">Home</span>
+					</a>
+				</li>
+				<li routerLinkActive="active">
+					<a routerLink="/cases">
+						<i class="large material-icons">public</i>
+						<span class="hide-on-med-and-down">Report by Country</span>
+					</a>
+				</li>
+				<li routerLinkActive="active">
+					<a routerLink="/news">
+						<i class="large material-icons">cloud</i>
+						<span class="hide-on-med-and-down">Covid-19 News</span>
+					</a>
+				</li>
+				<li routerLinkActive="active">
+					<a routerLink="/sign_in">
+						<i class="large material-icons">dehaze</i>
+						<span class="hide-on-med-and-down">Sign In</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
